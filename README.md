@@ -9,12 +9,12 @@ To get started, create a buffer with the `filetype` 'rest'
 	:set ft=rest
 ```
 Enter a http-verb and an url for example:
-```vim
+```
 	GET https://httpbin.org/get?hello=world
 ```
 Then run the command `:SendRequest` and you'll get the response in a new split.
 You can also choose to add headers and a body to your request.
-```vim
+```
 	POST https://httpbin.org/post
 	Content-Type: application/json
 
@@ -25,7 +25,7 @@ You can also choose to add headers and a body to your request.
 A *rest* buffer can have multiple requests in one file separating them by
 using three '#' symbols. The `:SendRequest` command will run whichever request
 the cursor is closest to.
-```vim
+```
 	GET https://httpbin.org/get
 
 	###
@@ -43,7 +43,7 @@ the cursor is closest to.
 ```
 
 Variables can be used to easily reuse values between requests.
-```vim
+```
 	@user_agent = vim-restclient
 
 	GET https://httpbin.org/get
@@ -81,18 +81,18 @@ headers and the response body into registers to easily paste in other buffers.
 
 g:rest_client_header_register	A register where all the response headers 
 				will be stored.
-```vim
-				let g:rest_client_header_register = 'h'
+```
+let g:rest_client_header_register = 'h'
 ```
 
 g:rest_client_body_register	A register where the body of the response
 				will be stored.
-```vim
-				let g:rest_client_body_register = 'b'
+```
+let g:rest_client_body_register = 'b'
 ```
 
 g:rest_client_response_register	A register where the whole combined response
 				will be stored.
-```vim
-				let g:rest_client_response_register = 'r'
+```
+let g:rest_client_response_register = 'r'
 ```
