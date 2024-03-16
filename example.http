@@ -1,0 +1,47 @@
+GET https://httpbin.org/get?hello=world
+
+###
+
+GET https://httpbin.org/get
+
+###
+
+GET https://httpbin.org/get?again=true
+
+###
+
+POST https://httpbin.org/post
+Content-Type: application/json
+
+{
+	"message": "Hello, from vim"
+}
+
+###
+@user_agent = vim-restclient
+
+GET https://httpbin.org/get
+User-Agent: {{ user_agent }}
+
+###
+
+POST https://httpbin.org/post
+User-Agent: {{ user_agent }}
+Content-Type: application/x-www-form-urlencoded
+
+message=Hello,%20from%20vim
+
+###
+
+# @name get_req
+GET https://httpbin.org/get?name=vim
+
+###
+
+POST https://httpbin.org/post
+Content-Type: application/json
+
+{
+	"name": "{{ get_req.response.body.args.name }}"
+}
+
